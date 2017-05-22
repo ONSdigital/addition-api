@@ -1,0 +1,35 @@
+basePath: /addition-api/1.0.0
+definitions: {}
+host: 'localhost:5000
+
+  '
+info:
+  contact: {email: jon@morphic.software}
+  description: API for doing maths operations on integers
+  license: {name: Apache 2.0, url: 'http://www.apache.org/licenses/LICENSE-2.0.html'}
+  title: Math operations API
+  version: 1.0.0
+paths:
+  /add:
+    get:
+      description: 'Pass in 2 numbers, get the result of summing them
+
+        '
+      operationId: add
+      parameters:
+      - {format: int32, in: query, name: x, required: true, type: integer}
+      - {format: int32, in: query, name: y, required: true, type: integer}
+      produces: [application/json]
+      responses:
+        200:
+          description: sum of x and y
+          schema: {format: int32, type: integer}
+        400: {description: bad input parameter}
+      summary: adds two numbers
+      tags: [add]
+      x-swagger-router-controller: swagger_server.controllers_local.add_controller
+schemes: [https]
+swagger: '2.0'
+tags:
+- {description: Secured Admin-only calls, name: admins}
+- {description: Operations available to regular developers, name: developers}
