@@ -26,4 +26,4 @@ if __name__ == '__main__':
     CORS(app.app)
     app.app.json_encoder = JSONEncoder
     app.add_api('swagger.yaml', arguments={'title': 'ONS Microservice'})
-    app.run(host='0.0.0.0', port=getenv('PORT', 5000), debug=True)
+    app.run(host='0.0.0.0', port=int(getenv('PORT', '5000')), debug=True)

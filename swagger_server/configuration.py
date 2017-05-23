@@ -53,9 +53,6 @@ class ONSEnvironment(object):
             )
         self._engine = create_engine(self.get('db_connection'), convert_unicode=True)
 
-    def __del__(self):
-        self._session.remove()
-
     def activate(self):
         """
         Activate the database, then set up the Cloud Foundry environment if there is one ...
