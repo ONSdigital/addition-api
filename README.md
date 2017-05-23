@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ONSdigital/addition-api.svg?branch=master)](https://travis-ci.org/ONSdigital/addition-api)
+
 # Swagger generated server
 
 ## Overview
