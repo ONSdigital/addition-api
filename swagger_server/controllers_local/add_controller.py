@@ -1,3 +1,6 @@
+import sys
+
+
 def add(x, y):
     """
     adds two numbers
@@ -9,4 +12,5 @@ def add(x, y):
 
     :rtype: int
     """
+    print("Received x={}, y={}. (Python version {}).".format(x, y, sys.version))
     return x + y

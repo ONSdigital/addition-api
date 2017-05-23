@@ -10,7 +10,8 @@ from swagger_server.encoder import JSONEncoder
 
 if __name__ == '__main__':
     cf_app_env = getenv('VCAP_APPLICATION')
-    if cf_app_env is not None:
+    in_cf_env = cf_app_env is not None
+    if in_cf_env:
         import yaml
         import json
         cwd = getcwd()
@@ -26,4 +27,4 @@ if __name__ == '__main__':
     CORS(app.app)
     app.app.json_encoder = JSONEncoder
     app.add_api('swagger.yaml', arguments={'title': 'ONS Microservice'})
-    app.run(host='0.0.0.0', port=int(getenv('PORT', '5000')), debug=True)
+    app.run(host='0.0.0.0', port=int(getenv('PORT', '5000')), debug=not in_cf_env)
